@@ -4,7 +4,7 @@ import random
 from Database import Database 
 
 #Class for generating QA Pairs using Random Vertices Approach
-class RandomVerticeQAGenerator(KnowledgeGraphQAGenerator):
+class RandomSeedSelectionQAGenerator(KnowledgeGraphQAGenerator):
     def __init__(self, export_path: str, do_export: bool = True, db=Database(), num_ctx_records: int = 50, ctx_per_record: int = 2, decode_batch_size: int = 1):
         super().__init__(export_path, do_export, db, num_ctx_records, ctx_per_record, decode_batch_size=decode_batch_size)
 

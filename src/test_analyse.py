@@ -267,16 +267,11 @@ if __name__ == "__main__":
 
     analysts.append(MyTestAnalyser(test_folder='output/EXPLAIN_QAR/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
     analysts.append(MyTestAnalyser(test_folder='output/EXPLAIN_QAR_noEP/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
-    #analysts.append(MyTestAnalyser(test_folder='output/EXPLAIN_QAR_noEP_noPE/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
-    analysts.append(MyTestAnalyser(test_folder='output/RandomVerticeQA/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
+    analysts.append(MyTestAnalyser(test_folder='output/RandomSeedSelectionQA/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
 
-    #analysts.append(MyTestAnalyser(test_folder='output/CS_2/mhqg', trim_data=True, test_set_size=test_size, random_seed=random_seed))
-    #analysts.append(MyTestAnalyser(test_folder='output/CS_3/mhqg', trim_data=True, test_set_size=test_size, random_seed=random_seed))
-    #analysts.append(MyTestAnalyser(test_folder='output/CS_4/questions', trim_data=True, test_set_size=test_size, random_seed=random_seed))
     analysts.append(MyTestAnalyser(test_folder='output/DRQA/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
-    analysts.append(MyTestAnalyser(test_folder='output/RAGRandomQA/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
+    analysts.append(MyTestAnalyser(test_folder='output/RandomVertexQA/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
     analysts.append(MyTestAnalyser(test_folder='output/SlidingWindowQA/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
-    #analysts.append(ZSTestAnalyser(test_folder='output/ZS/questions', trim_data=True, test_set_size=test_size, random_seed=random_seed))
 
     for analyst in analysts:
         analyst.load()

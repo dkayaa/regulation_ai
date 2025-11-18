@@ -10,7 +10,7 @@ from typing import Any
 from DataModel import MHQuestionAnswers
 from EntityPathExtractor import EntityPathExtractor
 
-class EXPLAINQARGenerator(ConnectedSubgraphQAGenerator): 
+class CRIKEYQAGGenerator(ConnectedSubgraphQAGenerator): 
     def __init__(self, export_path: str, do_export: bool = True, db=Database(), num_ctx_records: int = 50, ctx_per_record: int = 2, decode_batch_size: int = 1, do_path_extraction: bool = True, do_entity_pathing: bool = True):
         super().__init__(export_path, do_export, db, num_ctx_records, ctx_per_record, decode_batch_size=decode_batch_size, do_path_extraction=do_path_extraction)
         self.entity_path_extractor = EntityPathExtractor()

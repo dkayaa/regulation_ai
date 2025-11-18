@@ -1,8 +1,8 @@
 venv/
 venvlmqg/
 keys/
-data/
-output/ 
+data/SS
+output/SS
 src/__pycache__/
 .DS_Store
 .env

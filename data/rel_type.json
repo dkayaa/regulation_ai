@@ -1,0 +1,8 @@
+[{"id":1,"rel_description":"includes"},
+{"id":3,"rel_description":"refers"},
+{"id":4,"rel_description":"subject to"},
+{"id":5,"rel_description":"overrides"},
+{"id":6,"rel_description":"activates"},
+{"id":7,"rel_description":"modifies"},
+{"id":8,"rel_description":"in addition to"},
+{"id":9,"rel_description":"conditioned on"}]

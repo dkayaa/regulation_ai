@@ -6,7 +6,7 @@ from Database import Database
 import pandas as pd
 import json
 #Class for generating QA Pairs using Random Vertices Approach
-class RAGRandomQAGenerator(KnowledgeGraphQAGenerator):
+class RandomVertexQAGenerator(KnowledgeGraphQAGenerator):
     def __init__(self, export_path: str, do_export: bool = True, db=Database(), num_ctx_records: int = 50, ctx_per_record: int = 2, decode_batch_size: int = 1, explainqar_results_fp: str = ""):
         super().__init__(export_path, do_export, db, num_ctx_records, ctx_per_record, decode_batch_size=decode_batch_size)
         self.explainqar_results_fp = explainqar_results_fp
