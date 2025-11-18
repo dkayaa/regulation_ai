@@ -7,3 +7,5 @@ src/__pycache__/
 .DS_Store
 .env
 old_code/
+schema/
+schema_X/
