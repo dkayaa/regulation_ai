@@ -8,7 +8,7 @@ The code in this repository is an addendum to the Masters Thesis Research
 
 Note: API Keys must be stored in a folder ./keys in the root directory and must be labelled in accordance to the convention laid out in model_dict.py
 
-We use SpAcy for Entity Pathing extraction of lemmatized nounn phrases, please install its model with:
+We use SpAcy for Entity Pathing extraction of lemmatized noun phrases, please install its model with:
 ```
 python3 -m spacy download en_core_web_sm
 ```
