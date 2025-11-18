@@ -24,5 +24,7 @@ class ConnectedSubgraphQAGenerator(KnowledgeGraphQAGenerator):
         return sglist
 
     def get_seed_vertice_sets(self, seeds_per_set: int=2, num_sets: int=50) -> List[List[str]]:
-        return self.get_all_connected_subgraphs(self.ctx_per_record, ['refers', 'overrides','activates', 'modifies','conditioned on'])
+        #return self.get_all_connected_subgraphs(self.ctx_per_record, ['refers', 'overrides','activates', 'modifies','conditioned on'])
+        return self.get_all_connected_subgraphs(self.ctx_per_record, ['refers'])
+
     
