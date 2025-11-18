@@ -221,10 +221,11 @@ if __name__ == "__main__":
 
     random_seed = 42
 
-    test_size = 100 
+    #if trim_data set to true, we downsample the test to test_size amount
+    test_size = 500 
 
-    analysts.append(MyTestAnalyser(test_folder='output/EXPLAIN_QAR/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
-    analysts.append(MyTestAnalyser(test_folder='output/EXPLAIN_QAR_noEP/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
+    analysts.append(MyTestAnalyser(test_folder='output/CRIKEY_QAG/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
+    analysts.append(MyTestAnalyser(test_folder='output/ContextExtractionQA/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
     analysts.append(MyTestAnalyser(test_folder='output/RandomSeedSelectionQA/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
 
     analysts.append(MyTestAnalyser(test_folder='output/DRQA/qas.json', trim_data=False, test_set_size=test_size, random_seed=random_seed))
