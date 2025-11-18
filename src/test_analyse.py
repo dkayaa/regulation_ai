@@ -152,15 +152,6 @@ def score_bertscore(data, scores, device):
     scores['recall_bertscore'] = R.mean().item()
     scores['f1_bertscore'] = F1.mean().item()
 
-    #compute for each context individually and average
-    max_f1_bertscore_individual = []
-    min_f1_bertscore_individual = []
-    
-    #all_contexts_individual = 
-    
-    scores['avg_max_f1_bertscore'] = sum(max_f1_bertscore_individual)/len(max_f1_bertscore_individual)
-    scores['avg_min_f1_bertscore'] = sum(min_f1_bertscore_individual)/len(min_f1_bertscore_individual)
-
 
 def score_rouge_12L(data, scores):
 ##compute rouge-l scores 
@@ -179,37 +170,6 @@ def score_rouge_12L(data, scores):
     scores['avg_rougeL_score_combined'] = sum(rouge_l_scores)/len(rouge_l_scores)
     scores['avg_rouge1_score_combined'] = sum(rouge_1_scores)/len(rouge_1_scores)
     scores['avg_rouge2_score_combined'] = sum(rouge_2_scores)/len(rouge_2_scores)
-    
-    #do for each context individually and average
-    rouge_l_max_scores_individual = []
-    rouge_l_min_scores_individual = []
-
-    rouge_1_max_scores_individual = []
-    rouge_1_min_scores_individual = []
-
-    rouge_2_max_scores_individual = []
-    rouge_2_min_scores_individual = []
-
-    for item in data:
-        rouge_scores_individual = []
-        for c in item['contexts']:
-            ref = c
-            cand = item['question'] + '\n' + item['answer']
-            score = scorer.score(ref, cand)
-            rouge_scores_individual.append(score)
-        rouge_l_max_scores_individual.append(max([score['rougeL'].fmeasure for score in rouge_scores_individual]))
-        rouge_l_min_scores_individual.append(min([score['rougeL'].fmeasure for score in rouge_scores_individual]))
-        rouge_1_max_scores_individual.append(max([score['rouge1'].fmeasure for score in rouge_scores_individual]))
-        rouge_1_min_scores_individual.append(min([score['rouge1'].fmeasure for score in rouge_scores_individual]))
-        rouge_2_max_scores_individual.append(max([score['rouge2'].fmeasure for score in rouge_scores_individual]))
-        rouge_2_min_scores_individual.append(min([score['rouge2'].fmeasure for score in rouge_scores_individual]))
-
-    scores['avg_rouge1_score_max'] = sum(rouge_1_max_scores_individual)/len(rouge_1_max_scores_individual)  
-    scores['avg_rouge2_score_max'] = sum(rouge_2_max_scores_individual)/len(rouge_2_max_scores_individual)
-    scores['avg_rougeL_score_max'] = sum(rouge_l_max_scores_individual)/len(rouge_l_max_scores_individual)
-    scores['avg_rouge1_score_min'] = sum(rouge_1_min_scores_individual)/len(rouge_1_min_scores_individual)  
-    scores['avg_rouge2_score_min'] = sum(rouge_2_min_scores_individual)/len(rouge_2_min_scores_individual)
-    scores['avg_rougeL_score_min'] = sum(rouge_l_min_scores_individual)/len(rouge_l_min_scores_individual)
 
 def score_bleu(data, scores, device):
     from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
@@ -248,12 +208,10 @@ def scoring_function(data):
     device = 'mps' if torch.backends.mps.is_available() else 'cuda' if torch.cuda.is_available() else 'cpu'
 
     score_entailment(data, scores, device)
-    #score_citation_accuracy(data, scores, device)
-    #score_cosine_similarity(data, scores, device)
-    #score_bleu(data, scores, device)
-    #score_bleurt(data, scores, device)
-    #score_bertscore(data, scores, device)
-    #score_rouge_12L(data, scores)
+    score_citation_accuracy(data, scores, device)
+    score_cosine_similarity(data, scores, device)
+    score_bertscore(data, scores, device)
+    score_rouge_12L(data, scores)
 
     return scores
 

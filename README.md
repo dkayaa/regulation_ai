@@ -17,4 +17,7 @@ Outputs generated are stored in ./outputs folder
 
 Files prefixed with qa_ and qg_ relate to question answering and QA generation respectively.
 
+There are two main files to run the pipelines 
+`src/run.py` is used to run our approach as well as each of the baselines and ablations. baselines and ablations will accept an input filepath which points to the seeds selected by the seed vertex selection strategy in our approach, for consistency. 
 
+`src/test_analyse.py` is used to evaluate generated qa datasets and compute required metrics. 
