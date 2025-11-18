@@ -17,7 +17,7 @@ num_ctx_records = 50
 generators.append(CRIKEYQAGGenerator(export_path=f'{output_folder_name}/CRIKEY_QAG', do_export=True, db=Database(), num_ctx_records=num_ctx_records, ctx_per_record=ctx_per_record, decode_batch_size=4))
 
 #Ablations
-generators.append(CRIKEYQAGGenerator(export_path=f'{output_folder_name}/CRIKEY_QAG_noEP', do_export=True, db=Database(), num_ctx_records=num_ctx_records, ctx_per_record=ctx_per_record, decode_batch_size=4, do_entity_pathing=False))
+generators.append(CRIKEYQAGGenerator(export_path=f'{output_folder_name}/ContextExtractionQA', do_export=True, db=Database(), num_ctx_records=num_ctx_records, ctx_per_record=ctx_per_record, decode_batch_size=4, do_entity_pathing=False))
 generators.append(RandomSeedSelectionQAGenerator(export_path=f'{output_folder_name}/RandomSeedSelectionQA', do_export=True, db=Database(), num_ctx_records=num_ctx_records, ctx_per_record=ctx_per_record, decode_batch_size=4))
 
 # Baselines
